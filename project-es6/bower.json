@@ -1,8 +1,8 @@
 {
-  "name": "project-es6",
+  "name": "project",
   "description": "Description",
 
-  "main": "project-es6.min.js",
+  "main": "project.min.js",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -11,7 +11,7 @@
     "test"
   ],
 
-  "homepage": "https://github.com/59naga/project-es6",
+  "homepage": "https://github.com/59naga/project",
   "authors": [
     "59naga <i59naga@icloud.com>"
   ],

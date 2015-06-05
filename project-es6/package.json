@@ -1,5 +1,5 @@
 {
-  "name": "project-es6",
+  "name": "project",
   "description": "Description",
   "version": "0.0.0",
 
@@ -45,10 +45,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/59naga/project-es6.git"
+    "url": "git+https://github.com/59naga/project.git"
   },
   "bugs": {
-    "url": "https://github.com/59naga/project-es6/issues"
+    "url": "https://github.com/59naga/project/issues"
   },
-  "homepage": "https://github.com/59naga/project-es6#readme"
+  "homepage": "https://github.com/59naga/project#readme"
 }
