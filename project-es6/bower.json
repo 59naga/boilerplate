@@ -1,0 +1,19 @@
+{
+  "name": "project-es6",
+  "description": "Description",
+
+  "main": "project-es6.min.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src",
+    "test"
+  ],
+
+  "homepage": "https://github.com/59naga/project-es6",
+  "authors": [
+    "59naga <i59naga@icloud.com>"
+  ],
+  "license": "MIT"
+}

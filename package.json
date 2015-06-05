@@ -1,0 +1,16 @@
+{
+  "name": "npminit",
+  "bin": "npminit",
+  "version": "0.0.0",
+  "private": true,
+
+  "dependencies": {
+    "change-case": "^2.3.0",
+    "readline-sync": "^1.2.17",
+    "tli": "0.0.1-alpha.1",
+    "walk": "^2.3.9"
+  },
+  
+  "author": "59naga <i59naga@icloud.com> (http://berabou.me)",
+  "license": "MIT"
+}

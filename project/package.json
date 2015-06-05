@@ -1,0 +1,53 @@
+{
+  "name": "project",
+  "bin" : "project",
+  "version": "0.0.0-alpha.0",
+  "description": "Description",
+
+  "scripts": {
+    "default": "jasminetea test --file index.coffee --verbose --lint",
+
+    "start": "$(opc package scripts.default) --watch",
+    "localhost": "zuul test --ui jasmine2 --local 59798 --open",
+    "build-dev": "$(opc bower opc-scripts.build) > $(opc bower main)",
+
+    "cover": "$(opc package scripts.default) --cover --report",
+    "test": "npm run cover",
+
+    "prepublish": "node -e \"if(process.env.TRAVIS){}else{process.exit(1)}\" && npm run compile || echo skip prepublish",
+    "compile": "coffee --bare --compile index.coffee",
+    "postcompile": "coffee --output lib --bare --compile src",
+    "postpublish": "npm install && zuul test",
+
+    "build": "$(opc bower opc-scripts.build) | uglifyjs -cm > $(opc bower main)",
+    "postbuild": "wc -c $(opc bower main)",
+    "update": "git tag v$(opc package version) && git push --tags"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run cover"
+    }
+  },
+
+  "dependencies": {
+    "commander": "^2.8.1"
+  },
+  "devDependencies": {
+    "ghooks": "^0.3.2",
+    "jasminetea": "^0.2.0-beta.2",
+    "object-parser-cli": "0.0.0"
+  },
+  
+  "keywords": [
+  ],
+  "author": "59naga <i59naga@icloud.com> (http://berabou.me)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/59naga/project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/59naga/project/issues"
+  },
+  "homepage": "https://github.com/59naga/project#readme"
+}

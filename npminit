@@ -1,0 +1,61 @@
+#!/usr/bin/env node
+
+// Dependencies
+var readlineSync= require('readline-sync');
+var tli= require('tli');
+var walk= require('walk');
+var change= require('change-case');
+
+var exec= require('child_process').exec;
+var path= require('path');
+var fs= require('fs');
+
+// Program
+var type= readlineSync.question('type(coffee/es6): ');
+var name= readlineSync.question('name: ');
+var description= readlineSync.question('description: ');
+
+var from_suffix= type==='es6' ? '-es6': '';
+var from= path.join(__dirname,'project'+from_suffix);
+var to= path.join(process.cwd(),name);
+if(fs.existsSync(to)){
+  throw new Error(name+' is exists');
+}
+
+process.stdout.write('\n');
+process.stdout.write('Generating '+to+' ');
+var id= setInterval(function(){
+  process.stdout.write('.');
+},500);
+
+exec('cp -r '+from+' '+to,function(error,stdout){
+  if(error) throw error;
+
+  var walker= walk.walk(to);
+  walker.on('file',function(root,stats,next){
+    var filePath= path.join(root,stats.name);
+    var fileData= fs.readFileSync(filePath,'utf8');
+
+    fileData= fileData.replace(/project/g,change.paramCase(name));
+    fileData= fileData.replace(/Project/g,change.pascalCase(name));
+    fileData= fileData.replace(/Description/g,description);
+    fs.writeFileSync(filePath,fileData);
+
+    next();
+  });
+  walker.on('end',function(){
+    exec('cd '+to+' && git init && npm install',function(error,stdout){
+      if(error) throw error;
+
+      clearInterval(id);
+      process.stdin.write('done\n');
+
+      var result= tli.treeSync(to,{level:2});
+      console.log(path.relative(process.cwd(),to));
+      console.log(tli.stringify(result.tree));
+      console.log('Generated '+to);
+
+      process.exit(0);
+    });
+  });
+});

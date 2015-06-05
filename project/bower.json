@@ -1,0 +1,30 @@
+{
+  "name": "project",
+  "main": "project.min.js",
+
+  "opc-scripts": {
+    "build": [
+      "browserify ./src",
+
+      "--transform coffeeify",
+      "--extension .coffee",
+      
+      "--standalone project"
+    ]
+  },
+
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "*.coffee",
+    "src",
+    "test"
+  ],
+
+  "authors": [
+    "59naga <i59naga@icloud.com>"
+  ],
+  "homepage": "https://github.com/59naga/pixel",
+  "license": "MIT",
+}
