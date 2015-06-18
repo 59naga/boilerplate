@@ -11,29 +11,28 @@ $ npm install 59naga/npminit --global
 ```bash
 $ npminit
 
-# name: (project) 
-my-project
+# name:
+foo-bar-baz
 
-# description: (Description)
-foo
+# description:
+kaboom
 
-# Generating /Users/59naga/Downloads/my-project ..................done
-# my-project
+# Generating the foo-bar-baz .................. done
+# foo-bar-baz
 # ├─ README.md
 # ├─ bower.json
 # ├─ index.coffee
 # ├─ node_modules
-# │  ├─ commander
 # │  ├─ ghooks
 # │  ├─ jasminetea
 # │  └─ object-parser-cli
 # ├─ package.json
-# ├─ project
 # ├─ src
 # │  └─ index.coffee
 # └─ test
-#    ├─ api.spec.coffee
-#    └─ index.coffee
+#     └─ api.spec.coffee
+# 
+# Generated /Users/59naga/Downloads/foo-bar-baz
 ```
 
 License

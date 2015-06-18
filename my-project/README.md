@@ -40,7 +40,7 @@ $ bower install my-project --save
 description
 
 ```js
-do example
+// example code
 ```
 
 # Related projects

@@ -6,8 +6,9 @@
 
   "dependencies": {
     "change-case": "^2.3.0",
+    "cpr": "^0.4.1",
     "readline-sync": "^1.2.17",
-    "tli": "0.0.1-alpha.1",
+    "tli": "0.0.1-alpha.3",
     "walk": "^2.3.9"
   },
   
