@@ -1,0 +1,48 @@
+{
+  "name": "my-project",
+  "bin" : "my-project",
+  "version": "0.0.0-alpha.0",
+  "description": "Description",
+
+  "scripts": {
+    "start": "jasminetea --watch",
+    "localhost": "zuul test --ui jasmine2 --local 59798 --open",
+
+    "test": "jasminetea --lint --cover --report",
+    "test-cloud": "zuul test",
+
+    "prepublish": "node -e \"if(process.env.TRAVIS){}else{process.exit(1)}\" && npm run compile || echo skip prepublish",
+    "compile": "coffee --bare --compile index.coffee",
+    "postcompile": "coffee --output lib --bare --compile src"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm test"
+    }
+  },
+
+  "dependencies": {
+  },
+  "devDependencies": {
+    "ghooks": "^0.3.2",
+    "jasminetea": "^0.2.1",
+    "object-parser-cli": "0.0.1-alpha.1"
+  },
+  "globalDependencies": {
+    "coffee-script": "^1.9.3",
+    "zuul": "^3.0.0"
+  },
+  
+  "keywords": [
+  ],
+  "author": "59naga <i59naga@icloud.com> (http://berabou.me)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/59naga/my-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/59naga/my-project/issues"
+  },
+  "homepage": "https://github.com/59naga/my-project#readme"
+}

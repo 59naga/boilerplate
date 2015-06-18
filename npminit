@@ -11,12 +11,13 @@ var path= require('path');
 var fs= require('fs');
 
 // Program
-var type= readlineSync.question('type(coffee/es6): ');
+// var type= readlineSync.question('type(coffee/es6): ');
 var name= readlineSync.question('name: ');
 var description= readlineSync.question('description: ');
 
-var from_suffix= type==='es6' ? '-es6': '';
-var from= path.join(__dirname,'project'+from_suffix);
+var from_suffix= '';
+// var from_suffix= type==='es6' ? '-es6': '';
+var from= path.join(__dirname,'my-project'+from_suffix);
 var to= path.join(process.cwd(),name);
 if(fs.existsSync(to)){
   throw new Error(name+' is exists');
@@ -36,8 +37,9 @@ exec('cp -r '+from+' '+to,function(error,stdout){
     var filePath= path.join(root,stats.name);
     var fileData= fs.readFileSync(filePath,'utf8');
 
-    fileData= fileData.replace(/project/g,change.paramCase(name));
-    fileData= fileData.replace(/Project/g,change.pascalCase(name));
+    fileData= fileData.replace(/my-project/g,change.paramCase(name));
+    fileData= fileData.replace(/myProject/g,change.camelCase(name));
+    fileData= fileData.replace(/MyProject/g,change.pascalCase(name));
     fileData= fileData.replace(/Description/g,description);
     fs.writeFileSync(filePath,fileData);
 

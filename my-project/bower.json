@@ -1,0 +1,43 @@
+{
+  "name": "my-project",
+  "main": "my-project.min.js",
+
+  "opc-scripts": {
+    "build": [
+      "browserify ./src",
+      "--transform coffeeify",
+      "--standalone my-project",
+      "--extension .coffee",
+      "--debug"
+    ],
+    "uglify": [
+      "uglifyjs",
+
+      "my-project.js",
+      "--in-source-map",
+      "my-project.js.map",
+
+      "--mangle",
+      "--compress",
+
+      "--output",
+      "my-project.min.js",
+      "--source-map",
+      "my-project.min.js.map"
+     ]
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "*.coffee",
+    "src",
+    "test"
+  ],
+
+  "authors": [
+    "59naga <i59naga@icloud.com>"
+  ],
+  "homepage": "https://github.com/59naga/my-project",
+  "license": "MIT",
+}
