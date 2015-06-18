@@ -4,9 +4,9 @@
 
 > Description
 
-* feture 1
-* feture 2
-* feture 3
+* feature 1
+* feature 2
+* feature 3
 
 ## Installation
 ### Via npm
