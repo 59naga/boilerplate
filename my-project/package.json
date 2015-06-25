@@ -1,8 +1,11 @@
 {
   "name": "my-project",
-  "bin" : "my-project",
   "version": "0.0.0-alpha",
   "description": "Description",
+
+  "browser": {
+    "./src": false
+  },
 
   "scripts": {
     "start": "jasminetea --watch",
