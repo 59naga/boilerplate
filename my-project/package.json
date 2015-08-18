@@ -9,10 +9,10 @@
 
   "scripts": {
     "start": "jasminetea --watch",
-    "localhost": "zuul test --ui jasmine2 --local 59798 --open",
+    "localhost": "zuul test/api.spec --ui jasmine2 --local 59798 --open",
 
     "test": "jasminetea --lint --cover --report",
-    "test-cloud": "zuul test",
+    "test-cloud": "zuul test/api.spec",
 
     "prepublish": "node -e \"if(process.env.TRAVIS){}else{process.exit(1)}\" && npm run compile || echo skip prepublish",
     "compile": "coffee --bare --compile index.coffee",
