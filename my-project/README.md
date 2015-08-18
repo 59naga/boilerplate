@@ -16,7 +16,7 @@ $ npm install my-project --save
 ```
 
 ```js
-var myProject= require('project');
+var myProject= require('my-project');
 console.log(myProject); //object
 ```
 
