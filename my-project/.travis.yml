@@ -34,5 +34,4 @@ deploy:
 # Cloud testing
 after_deploy:
   - npm install
-  - npm install zuul --global
   - npm run test-cloud

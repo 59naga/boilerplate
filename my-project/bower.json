@@ -1,6 +1,18 @@
 {
   "name": "my-project",
-  "main": "my-project.min.js",
+  "description": "Description",
+
+  "main": [
+    "my-project.min.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "*.coffee",
+    "src",
+    "test"
+  ],
 
   "opc-scripts": {
     "build": [
@@ -26,18 +38,10 @@
       "my-project.min.js.map"
      ]
   },
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "*.coffee",
-    "src",
-    "test"
-  ],
 
   "authors": [
     "59naga <i59naga@icloud.com>"
   ],
   "homepage": "https://github.com/59naga/my-project",
-  "license": "MIT",
+  "license": "MIT"
 }
