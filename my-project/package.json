@@ -8,8 +8,8 @@
     "prepublish": "node -e \"if(process.env.TRAVIS){}else{process.exit(1)}\" && npm run compile || echo skip prepublish",
     "compile": "coffee --output lib --bare --compile src",
     
-    "start": "jasminetea --watch",
-    "test": "jasminetea --lint --cover --report",
+    "start": "jasminetea --file index.coffee --watch",
+    "test": "jasminetea --file index.coffee --lint --cover --report",
 
     "localhost": "zuul test --ui jasmine2 --local 59798 --open",
     "test-cloud": "zuul test",
