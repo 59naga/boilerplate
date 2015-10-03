@@ -5,16 +5,16 @@
 
   "main": "lib",
   "scripts": {
+    "prepublish": "node -e \"if(process.env.TRAVIS){}else{process.exit(1)}\" && npm run compile || echo skip prepublish",
+    "compile": "coffee --output lib --bare --compile src",
+    
     "start": "jasminetea --watch",
     "test": "jasminetea --lint --cover --report",
 
     "localhost": "zuul test --ui jasmine2 --local 59798 --open",
     "test-cloud": "zuul test",
 
-    "prepublish": "node -e \"if(process.env.TRAVIS){}else{process.exit(1)}\" && npm run compile || echo skip prepublish",
-    "compile": "coffee --output lib --bare --compile src",
-
-    "prebuild": "$(opc bower opc-scripts.build) | exorcist $(opc bower name).js.map > $(opc bower name).js",
+    "prebuild": "$(opc bower opc-scripts.build) | exorcist $(opc bower name).js.map -b . > $(opc bower name).js",
     "build": "$(opc bower opc-scripts.uglify) && rm $(opc bower name).js.map",
     "postbuild": "rm $(opc bower name).js $(opc bower name).js.map && wc -c $(opc bower main)",
     "update": "git tag v$(opc package version) && git push --tags"
