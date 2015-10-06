@@ -34,6 +34,7 @@
     "brfs": "^1.4.1",
     "browserify": "^11.2.0",
     "coffeeify": "^1.1.0",
+    "exorcist": "^0.4.0",
     "ghooks": "^0.3.2",
     "jasminetea": "^0.2.1",
     "object-parser-cli": "^0.0.1",
