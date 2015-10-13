@@ -1,6 +1,6 @@
 {
-  "name": "npminit",
-  "bin": "npminit",
+  "name": "boilerplate",
+  "bin": "npm-bp",
   "version": "0.0.0",
   "private": true,
 

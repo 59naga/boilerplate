@@ -13,10 +13,11 @@ var fs= require('fs');
 
 // Program
 var name= process.argv.slice(2)[0];
+var description= null;
 if(name==null){
   name= readlineSync.question('name: ');
+  description= readlineSync.question('description: ');
 }
-// var description= readlineSync.question('description: ');
 
 var from_suffix= '';
 var from= path.join(__dirname,'my-project'+from_suffix);
@@ -25,9 +26,10 @@ if(fs.existsSync(to)){
   throw new Error(name+' is exists');
 }
 
+// Main
 process.stdout.write('\n');
 process.stdout.write('Generating the '+name+' ');
-var id= setInterval(function(){
+var intervalId= setInterval(function(){
   process.stdout.write('.');
 },1000);
 
@@ -42,7 +44,9 @@ cpr(from,to,function(error,stdout){
     fileData= fileData.replace(/my-project/g,change.paramCase(name));
     fileData= fileData.replace(/myProject/g,change.camelCase(name));
     fileData= fileData.replace(/MyProject/g,change.pascalCase(name));
-    // fileData= fileData.replace(/Description/g,description);
+    if(description){
+      fileData= fileData.replace(/Description/g,description);
+    }
     fs.writeFileSync(filePath,fileData);
 
     next();
@@ -51,7 +55,7 @@ cpr(from,to,function(error,stdout){
     exec('cd '+to+' && git init && npm install',function(error,stdout){
       if(error) throw error;
 
-      clearInterval(id);
+      clearInterval(intervalId);
       process.stdin.write(' done\n');
 
       var result= tli.treeSync(to,{level:2});
