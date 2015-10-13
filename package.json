@@ -1,6 +1,8 @@
 {
   "name": "boilerplate",
-  "bin": "npm-bp",
+  "bin": {
+    "npm-bp": "npm-bp"
+  },
   "version": "0.0.0",
   "private": true,
 
