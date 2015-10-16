@@ -29,6 +29,15 @@ $ bower install my-project --save
 </script>
 ```
 
+### Via rawgit.com(the simple way)
+
+```html
+<script src="https://cdn.rawgit.com/59naga/my-project/master/my-project.min.js"></script>
+<script>
+  console.log(myProject); //object
+</script>
+```
+
 # API
 
 ## method -> becomes
