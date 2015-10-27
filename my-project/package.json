@@ -11,6 +11,8 @@
     "start": "jasminetea --file index.coffee --watch",
     "test": "jasminetea --file index.coffee --lint --cover --report",
 
+    "client-setup": "$(opc bower opc-scripts.install)",
+
     "localhost": "zuul test --ui jasmine2 --local 59798 --open",
     "test-cloud": "zuul test",
 
@@ -29,10 +31,6 @@
     "object-assign": "^4.0.1"
   },
   "devDependencies": {
-    "browserify": "^12.0.0",
-    "coffeeify": "^1.1.0",
-    "envify": "^3.4.0",
-    "exorcist": "^0.4.0",
     "ghooks": "^0.3.2",
     "jasminetea": "^0.2.1",
     "object-parser-cli": "^0.0.1"

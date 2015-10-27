@@ -13,8 +13,6 @@ $ npm install 59naga/boilerplate --global
 `npm-bp`で指定したパッケージ名で__ファイル群の文字列を置換し__、パッケージ名のフォルダへ展開します。
 またその際、`npm install`を自動で実行します。
 
-`browserify`, `chokidar`など、インストール時間を要するものを含むため、これは数十秒で終了します。
-
 ```bash
 $ npm-bp bland-new-package
 
@@ -75,6 +73,12 @@ npm test
 ### `git commit`
 
 `ghooks`により`npm test`が自動実行されます。これが通らない限り、コミットはキャンセルされます。
+
+### `npm run client-setup`
+
+npm scriptsの`client-setup`以下のスクリプトを有効にするために必要です。
+bower.json内の`opc-scripts install`で定義された依存モジュールをインストールします。
+`browserify`, `chokidar`など、インストール時間を要するものを含むため、これは数十秒掛かります。
 
 ### `npm run localhost`
 

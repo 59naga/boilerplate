@@ -13,6 +13,14 @@
   ],
 
   "opc-scripts": {
+    "install": [
+      "npm install",
+
+      "coffee-script",
+      "browserify",
+      "envify",
+      "exorcist"
+    ],
     "build": [
       "browserify ./src",
       "--transform coffeeify",
