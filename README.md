@@ -105,6 +105,30 @@ npm build
 `opc ***`はUNIX用のコマンド生成コマンドで、`$()`内を実行することで、windows用に変換することも可能です。
 `opc`コマンドが存在しない場合、`npm install object-parser-cli --global`で解決できます。
 
+# TravisCI上の環境変数
+
+以下のようにして、`.travis.yml`に暗号化して埋め込みます。`travis encrypt`後は、`.yml`の書式が崩れてしまうので、暗号化されたTOKENの行だけコピーして、`git checkout`するなどした方が良いかもしれません。
+
+```bash
+open https://travis-ci.org/profile/ # to Enable repository
+
+subl ~/.npmrc
+# copy the authTokenValue -> registry.npmjs.org/:_authToken=********-****-****-****-************
+travis encrypt --add deploy.api_key
+# paste `********-****-****-****-************`
+# ^D^D
+
+open https://coveralls.io/repos/new
+travis encrypt COVERALLS_REPO_TOKEN=* --add
+# or...
+open https://codeclimate.com/dashboard # setting>test coverage
+travis encrypt CODECLIMATE_REPO_TOKEN=* --add
+
+# https://docs.saucelabs.com/ci-integrations/travis-ci/
+travis encrypt SAUCE_USERNAME=* --add
+travis encrypt SAUCE_ACCESS_KEY=* --add
+```
+
 License
 ---
 [MIT][License]
