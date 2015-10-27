@@ -5,7 +5,7 @@
 
   "main": "lib",
   "scripts": {
-    "prepublish": "node -e \"if(process.env.TRAVIS){}else{process.exit(1)}\" && npm run compile || echo skip prepublish",
+    "prepublish": "node -e \"if(process.env.TRAVIS_PASSED){}else{process.exit(1)}\" && npm run compile || echo skip prepublish",
     "compile": "coffee --output lib --bare --compile src",
     
     "start": "jasminetea --file index.coffee --watch",

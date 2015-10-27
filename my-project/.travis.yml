@@ -9,11 +9,7 @@ branches:
   except:
     - /^v[0-9]/
 
-# Language options
-language: node_js
-node_js:
-  - '0.12'
-
+# Setup process.env
 env:
   global:
     # COVERALLS_REPO_TOKEN
@@ -21,6 +17,13 @@ env:
     # SAUCE_TOKENS
     # - secure: m9BMEAR49UjfnSITCWkW0b6RsJ6TwP+EexDNJaEeSZsODOzYK6zR1JKQBVgF5JhSnuZjkXBmncdax1LirADhEw504Bl3a/zMlxQm+GpwTcMHikZQCXTRUtZOKCq31AM8pufAK/9fGFPAdUtgt4takc0RaBrS/tFbDKGOsUy+3H/ymZSI2BGBlrKZD+gaZzlX9dnEY2EwwJKHdFvnjf14eVab1DUXav0I9+C3873YgCfLtTf+/Rzb9SeSuCK6jZq3sHffDIfYWtYo5cgNcNBiEmDGGeLDZ/nHDDj2gmcOsO4yjhEvluFg8cOzQMb+5jhxBYL11nBiEU+zvfaVHssZrDIlPYearhE87w3lN3oXoSqpHqzsFu3WssRsl/j0OvDVmF8eHKSOdPz2ZOhlmiV2ZUrszP17+ocS5c22gTAP/mHUNlCsSOFaZNioV2EQ2ljJkM2q+aoEIbTN1Y/99StsJ1gcVpVReZl5PGCsq+R8J6eXrbTwvC86hAM4/uEStIlKJzIYpvQasgNDa4VLEw9DXECWFRZ1xZfaKf4dnGlLrxh1EcWmBPOmVEsWWaFRhCC6THTB6Rpchekcmh/L8WH9Rxw52ctsiliDG84KS/PjMlPCqc5mPhtreghvJatBPT+rKwyU54k83oouqWkfMVtJewVmT4jtw89a7sVwgTH6dfk=
     # - secure: T1JCtjz7KiSVjL/HJ6t1MShL7J43E2bEp6Mq9ki/0K9ZUUBVfSwyPdDu5sxl0oaW27UmYajq/bp3v+C3gdjkFkO35Te4iKyyC8lVL86IvXvIzDlAMP3ILY6VaaaBKVyGx8iWSTWE+oL3wx2Z7Jed1kw96HeJUrWQhC5KWiV1Ar0imq0jreoBd7+3SgIcKCq/UJmSEHea2HP2DTlPexr/CE1Dp9nYzgJa2goHLidlUCgo6WE9b72EbjqW77ww0RNUAbcdS4+DuCEoSo/6kTO5akQD5pJGNFjtQUfNzrM9ZaJLJzPmP6sr9pbL4FOeIpreVvAON4mfuExlYfVj78vssO8TfXAYXvBwKXRz9h0epjnTTup+39g5dig+3Spwvnvy9XHoQ1ySucEBHLLp/64vlf9itXEqiPcNRPqXysLRbZh1E3g3aXOgXOrU437kF/92LuT4pSfWJa6z+j+HsjHQhlS7pFM3l8xYOwl5v/Dc72GowZLO8bLbIvkg7UooZm8TOCpbZlFTMJWgMKkOae+19E6sKsqbe2SBVx/09raKa2DYhVNct12BfrNG6Nal10He4U2pvvmlNykWdV4P0kgVe7WUNNtNV1hyrDTsdQPxPBzw5kWMR4S0PJ+73IwzCry8w7iQ9yUh1wyeflFTwjUwlRt1AjOYu1f7b3Q62bzYEb4=
+
+# Language options
+language: node_js
+node_js:
+  - '0.12'
+after_success:
+  - export TRAVIS_PASSED=true
 
 # Npm publish options
 before_deploy:
