@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "ghooks": "^0.3.2",
-    "jasminetea": "^0.2.1",
+    "jasminetea": "^0.3.0-alpha.1",
     "object-parser-cli": "^0.0.1"
   },
   
