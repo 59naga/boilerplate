@@ -49,6 +49,10 @@ cpr(from,to,function(error,stdout){
     }
     fs.writeFileSync(filePath,fileData);
 
+    if(stats.name===('my-project.coffee')){
+      fs.renameSync(filePath,path.join(root,change.paramCase(name)+'.coffee'))
+    }
+
     next();
   });
   walker.on('end',function(){

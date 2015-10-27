@@ -1,9 +1,9 @@
 # Dependencies
+myProject= require './my-project'
+objectAssign= require 'object-assign'
 
-# Public
-class MyProject
-  method: ->
-    'foo'
+# Singleton & constructor
+API= objectAssign myProject.method,myProject
+API.version= process.env.npm_package_version
 
-module.exports= new MyProject
-module.exports.MyProject= MyProject
+module.exports= API

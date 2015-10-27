@@ -13,34 +13,21 @@ $ npm install my-project --save
 
 ```js
 var myProject= require('my-project');
-console.log(myProject); //object
-```
-
-### Via bower
-
-```bash
-$ bower install my-project --save
-```
-
-```html
-<script src="bower_components/my-project/my-project.min.js"></script>
-<script>
-  console.log(myProject); //object
-</script>
+console.log(myProject); //function
 ```
 
 ### Via rawgit.com(the simple way)
 
 ```html
-<script src="https://cdn.rawgit.com/59naga/my-project/master/my-project.min.js"></script>
+<script src="https://cdn.rawgit.com/59naga/my-project/v0.0.0/my-project.min.js"></script>
 <script>
-  console.log(myProject); //object
+  console.log(myProject); //function
 </script>
 ```
 
 # API
 
-## method -> becomes
+## myProject -> becomes
 
 description
 

@@ -5,8 +5,8 @@ myProject= require '../src'
 
 # Specs
 describe 'myProject',->
-  it '.method',->
-    result= myProject.method()
+  it 'default',->
+    result= myProject()
     
     expect(result).toBe 'foo'
       
